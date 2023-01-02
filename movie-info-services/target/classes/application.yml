@@ -1,0 +1,28 @@
+server:
+  port: 8082
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+  instance:
+    instance-id: ${spring-application.name}-${random.int}
+    hostname: localhost
+
+spring:
+  application:
+    name: movie-info-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/microservice
+    username: qi
+    password: Akronohio1
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+      ddl-auto: update
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+
+api:
+  key: d1c01a09dc9b7edff71fc4bcf9bb43d3
