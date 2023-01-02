@@ -1,0 +1,6 @@
+io\javabrains\moviecatalogservices\models\Rating.class
+io\javabrains\moviecatalogservices\models\UserRating.class
+io\javabrains\moviecatalogservices\models\Movie.class
+io\javabrains\moviecatalogservices\MovieCatalogServicesApplication.class
+io\javabrains\moviecatalogservices\models\CatalogItem.class
+io\javabrains\moviecatalogservices\resources\MovieCatalogResource.class
