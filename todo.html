@@ -3,20 +3,17 @@
         <title>My todo App</title>
     </header>
     <body>
-        <button>press me</button>
-        <div>Get grocerise</div>
-        <div>Wash car</div>
-        <div>Make dinner</div>
+        <button onclick="addTitle()">press me</button>
                
         <script>
-            let todo1 = 'Get grocerise';
-            let todo2 = 'Wash car';
-            let todo3 = 'Make dinner';
-
-            let element = document.createElement('div');
-            element.innerText = todo1;
-            document.body.appendChild(element);
-
+            let todo = ['Get grocerise', 'Wash car', 'Make dinner'];
+            function addTitle(){
+                todo.forEach(function(todoTitle){
+                    let element = document.createElement('div');
+                    element.innerText = todoTitle;
+                    document.body.appendChild(element);
+                });
+            }
         </script> 
     </body>
 </html>
