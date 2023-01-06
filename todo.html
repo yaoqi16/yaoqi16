@@ -5,22 +5,29 @@
     <body>
         <input type="text" id="todo-title">
         <button onclick="addTitle()">add title</button>
-               
+        <div id="display-title" >
+
         <script>
             let todo = ['Get grocerise', 'Wash car', 'Make dinner'];
-            function addTitle(){
-                addBox();
+            render();
+
+            function render(){
+                // reset div 'display-title'
+                document.getElementById('display-title').innerHTML = '';
                 todo.forEach(function(todoTitle){
                     let element = document.createElement('div');
                     element.innerText = todoTitle;
-                    document.body.appendChild(element);
+                    let title_display = document.getElementById('display-title');
+                    title_display.appendChild(element);
                 });
             }
 
-            function addBox(){
+            function addTitle(){
                 let textBox = document.getElementById('todo-title');
                 let textBoxContent = textBox.value;
                 todo.push(textBoxContent);
+                render();
+
             }
         </script> 
     </body>
