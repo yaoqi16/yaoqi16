@@ -3,16 +3,24 @@
         <title>My todo App</title>
     </header>
     <body>
-        <button onclick="addTitle()">press me</button>
+        <input type="text" id="todo-title">
+        <button onclick="addTitle()">add title</button>
                
         <script>
             let todo = ['Get grocerise', 'Wash car', 'Make dinner'];
             function addTitle(){
+                addBox();
                 todo.forEach(function(todoTitle){
                     let element = document.createElement('div');
                     element.innerText = todoTitle;
                     document.body.appendChild(element);
                 });
+            }
+
+            function addBox(){
+                let textBox = document.getElementById('todo-title');
+                let textBoxContent = textBox.value;
+                todo.push(textBoxContent);
             }
         </script> 
     </body>
