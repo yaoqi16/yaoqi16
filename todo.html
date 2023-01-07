@@ -14,7 +14,6 @@
                 {title: 'Get grocerise', duedate: '2022-1-10', id: '1'},
                 {title: 'Wash car', duedate: '2022-2-19', id: '2'},
                 {title: 'Make dinner', duedate: '2022-10-10', id: '3'}];
-                
 
             render();
 
@@ -22,10 +21,8 @@
                 // reset div 'display-title'
                 document.getElementById('display-title').innerHTML = '';
                 
-                let index = 0;
                 todo.forEach(function(parameter){
                     const element = document.createElement('div');
-                    element.id = index;
                     element.innerText = parameter.title + " " + parameter.duedate;
                     const deleteButton = document.createElement('button');
                     deleteButton.style = 'margin-left: 10px;';
@@ -35,7 +32,6 @@
                     element.appendChild(deleteButton);
                     const title_display = document.getElementById('display-title');
                     title_display.appendChild(element);
-                    index++;
                 });
             }
 
@@ -47,11 +43,21 @@
                 render();
             }
 
-            function deleteTitle(event){
+            function deleteTitle(event){               
                 const deleteButton = event.target;
-                const id = deleteButton.id;
-                console.log(event);
+                const deletedid = deleteButton.id;
+                
+                todo = todo.filter(function(parameter){
+                    if(parameter.id != deletedid){
+                        return true;
+                    }   
+                    else {
+                        return false;
+                    }            
+                });
+                render();
             }
+                
         </script> 
     </body>
 </html>
