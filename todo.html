@@ -4,28 +4,36 @@
     </header>
     <body>
         <input type="text" id="todo-title">
+        <input type="date" id="date-picker">
         <button onclick="addTitle()">add title</button>
         <div id="display-title" >
 
         <script>
-            let todo = ['Get grocerise', 'Wash car', 'Make dinner'];
+            // javascript object (key-value pair)
+            let todo = [
+                {title: 'Get grocerise', duedate: '2022-1-10'},
+                {title: 'Wash car', duedate: '2022-2-19'},
+                {title: 'Make dinner', duedate: '2022-10-10'}];
+                
+
             render();
 
             function render(){
                 // reset div 'display-title'
                 document.getElementById('display-title').innerHTML = '';
-                todo.forEach(function(todoTitle){
+
+                todo.forEach(function(parameter){
                     let element = document.createElement('div');
-                    element.innerText = todoTitle;
+                    element.innerText = parameter.title + " " + parameter.duedate;
                     let title_display = document.getElementById('display-title');
                     title_display.appendChild(element);
                 });
             }
 
             function addTitle(){
-                let textBox = document.getElementById('todo-title');
-                let textBoxContent = textBox.value;
-                todo.push(textBoxContent);
+                const textBox = document.getElementById('todo-title');
+                const duedateBox = document.getElementById("date-picker");
+                todo.push({title: textBox.value, duedate: duedateBox.value});
                 render();
 
             }
