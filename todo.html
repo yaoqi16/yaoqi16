@@ -14,7 +14,7 @@
                 {title: 'Get grocerise', duedate: '2022-1-10', id: '1'},
                 {title: 'Wash car', duedate: '2022-2-19', id: '2'},
                 {title: 'Make dinner', duedate: '2022-10-10', id: '3'}];
-
+            document.getElementById("date-picker").addEventListener("click", changeColor);
             render();
 
             function render(){
@@ -38,9 +38,18 @@
             function addTitle(){
                 const textBox = document.getElementById('todo-title');
                 const duedateBox = document.getElementById("date-picker");
-                const id = new Date().getTime();
+                const id = '' + new Date().getTime();
                 todo.push({title: textBox.value, duedate: duedateBox.value, id: id});
                 render();
+                changeBack();
+            }
+
+            function changeColor(){
+                document.getElementById("date-picker").setAttribute("style", "background: aqua");
+            }
+
+            function changeBack(){
+                document.getElementById("date-picker").setAttribute("style", "background: FFFFFF");
             }
 
             function deleteTitle(event){               
@@ -48,7 +57,7 @@
                 const deletedid = deleteButton.id;
                 
                 todo = todo.filter(function(parameter){
-                    if(parameter.id != deletedid){
+                    if(parameter.id !== deletedid){
                         return true;
                     }   
                     else {
